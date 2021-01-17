@@ -36,8 +36,6 @@ exports.handler = async (event, context, callback) => {
 			deviceScaleFactor: scale,
 		});
 		await page.goto(url, { waitUntil: "load" });
-		if( wait > 0 )
-			await page.waitForTimeout(wait);
 		if( event.queryStringParameters.waitfor ){
 			try{
 				await page.waitForFunction("vue.render.loaded");
@@ -45,6 +43,8 @@ exports.handler = async (event, context, callback) => {
 				console.log(error);
 			}
 		}
+		if( wait > 0 )
+			await page.waitForTimeout(wait);
 		var buffer = await page.screenshot({ type: type });
 		browser.close();
 
