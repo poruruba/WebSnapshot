@@ -9,7 +9,6 @@ var vue_options = {
     data: {
         progress_title: '', // for progress-dialog
 
-        message: "initialize",
         render: {},
         weather: null,
         date: "",
