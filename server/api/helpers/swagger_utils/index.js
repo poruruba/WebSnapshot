@@ -24,6 +24,10 @@ function append_paths(root, target, name){
 //      children[j].value.set("x-swagger-router-controller", ROUTING_NAME);
       children[j].value.set("x-operationId", name);
       children[j].value.set("x-automount", name);
+      if( children[j].value.has('tags') )
+        children[j].value.addIn(['tags'], name);
+      else
+        children[j].value.add({ key: 'tags', value: [name] });
     }
 
     map.items[i].comment = " automounted";
