@@ -2,17 +2,17 @@
 #include "M5Lite.h"
 #include <HTTPClient.h>
 
-const char* wifi_ssid = "yWiFiƒAƒNƒZƒXƒ|ƒCƒ“ƒg‚ÌSSIDz";
-const char* wifi_password = "yWiFiƒAƒNƒZƒXƒ|ƒCƒ“ƒg‚ÌƒpƒXƒ[ƒhz";
+const char* wifi_ssid = "ã€WiFiã‚¢ã‚¯ã‚»ã‚¹ãƒã‚¤ãƒ³ãƒˆã®SSIDã€‘";
+const char* wifi_password = "ã€WiFiã‚¢ã‚¯ã‚»ã‚¹ãƒã‚¤ãƒ³ãƒˆã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã€‘";
 
-const char* screenshot_url = "yNode.jsƒT[ƒo‚ÌURLz/screenshot";
-const char* target_url = "yƒXƒNƒŠ[ƒ“ƒVƒ‡ƒbƒg‘ÎÛ‚ÌWebƒy[ƒW‚ÌURLz";
+const char* screenshot_url = "ã€Node.jsã‚µãƒ¼ãƒã®URLã€‘/screenshot";
+const char* target_url = "ã€ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‚·ãƒ§ãƒƒãƒˆå¯¾è±¡ã®Webãƒšãƒ¼ã‚¸ã®URLã€‘";
 
-#define SCREENSHOT_INTERVAL   (10 * 60 * 1000) //ƒXƒNƒŠ[ƒ“ƒVƒ‡ƒbƒgæ“¾‚ÌŠÔŠu
-#define DISPLAY_WIDTH   320  //LCD‚Ì‰¡‰ğ‘œ“x
-#define DISPLAY_HEIGHT  240 //LCD‚Ìc‰ğ‘œ“x
-#define SCREENSHOT_SCALE  1.0 //ƒXƒNƒŠ[ƒ“ƒVƒ‡ƒbƒg‚Ì•\¦”{—¦
-#define BUFFER_SIZE   20000 //‰æ‘œóM‚Ìƒoƒbƒtƒ@ƒTƒCƒY
+#define SCREENSHOT_INTERVAL   (10 * 60 * 1000) //ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‚·ãƒ§ãƒƒãƒˆå–å¾—ã®é–“éš”
+#define DISPLAY_WIDTH   320  //LCDã®æ¨ªè§£åƒåº¦
+#define DISPLAY_HEIGHT  240 //LCDã®ç¸¦è§£åƒåº¦
+#define SCREENSHOT_SCALE  1.0 //ã‚¹ã‚¯ãƒªãƒ¼ãƒ³ã‚·ãƒ§ãƒƒãƒˆã®è¡¨ç¤ºå€ç‡
+#define BUFFER_SIZE   20000 //ç”»åƒå—ä¿¡ã®ãƒãƒƒãƒ•ã‚¡ã‚µã‚¤ã‚º
 
 unsigned char buffer[BUFFER_SIZE];
 
@@ -153,6 +153,9 @@ long doHttpGet(String url, uint8_t *p_buffer, unsigned long *p_len, unsigned sho
             }
             delay(1);
         }
+      }else{
+        http.end();
+        return -1;
       }
   } else {
     http.end();
